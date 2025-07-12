@@ -1,0 +1,70 @@
+<!-- Declare the document type as HTML5 -->
+<!DOCTYPE html>
+
+<!-- Start the HTML document with language set to English -->
+<html lang="en">
+
+<head>
+  <!-- Set character encoding to UTF-8 for proper text display -->
+  <meta charset="UTF-8">
+
+  <!-- Page title shown in the browser tab -->
+  <title>Joshua Blatnik | Student Info</title>
+
+  <!-- Link to Google Fonts to load Montserrat with weights 400 and 700 -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Link to the external CSS file for styling -->
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <!-- Container to hold the image and student info side by side -->
+  <div class="container">
+    
+    <!-- Hero image with alt text and CSS class -->
+    <img src="QuagsGarcia2023.jpg" alt="Urban Hoodie Art" class="hero-img">
+    
+    <!-- Div to hold all the text info -->
+    <div class="info">
+      <!-- Name element populated by JavaScript -->
+      <h1 id="name"></h1>
+      
+      <!-- Static slogan under the name -->
+      <h2 id="slogan">Creating code with an edge.</h2>
+      
+      <!-- Major field populated by JavaScript -->
+      <p id="major"></p>
+      
+      <!-- Email field populated by JavaScript -->
+      <p id="email"></p>
+      
+      <!-- Graduation date field populated by JavaScript -->
+      <p id="gradDate"></p>
+    </div>
+  </div>
+
+  <!-- Inline JavaScript to insert student info dynamically -->
+  <script>
+    // Define an object holding the student info
+    const student = {
+      name: "Joshua Blatnik",
+      major: "Advancing Computer Science",
+      email: "josblatn@uat.edu",
+      gradDate: "May 2026"
+    };
+
+    // Insert name into the element with id="name"
+    document.getElementById("name").textContent = student.name;
+
+    // Insert major into the element with id="major"
+    document.getElementById("major").textContent = "Major: " + student.major;
+
+    // Insert email into the element with id="email"
+    document.getElementById("email").textContent = "Email: " + student.email;
+
+    // Insert graduation date into the element with id="gradDate"
+    document.getElementById("gradDate").textContent = "Expected Graduation: " + student.gradDate;
+  </script>
+</body>
+</html>

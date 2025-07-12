@@ -1,0 +1,112 @@
+/* Prevent text and image selection for all specified elements */
+body, h1, h2, p, img {
+  user-select: none;               /* Standard syntax */
+  -webkit-user-select: none;       /* Safari */
+  -moz-user-select: none;          /* Firefox */
+  -ms-user-select: none;           /* IE and Edge */
+}
+
+/* Set up full-screen dark background and center content */
+body {
+  margin: 0;                       /* Remove default margin */
+  height: 100vh;                   /* Full viewport height */
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c); /* Dark gradient background */
+  color: #f0f0f0;                  /* Default text color */
+  font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
+  display: flex;                   /* Enable flexbox */
+  justify-content: center;         /* Center horizontally */
+  align-items: center;             /* Center vertically */
+}
+
+/* Container holds image and text side by side */
+.container {
+  display: flex;                   /* Enable flex layout */
+  flex-direction: row;             /* Arrange items in a row */
+  gap: 50px;                       /* Space between items */
+  align-items: center;             /* Vertically align items */
+}
+
+/* Style for the main image */
+.hero-img {
+  width: 350px;                    /* Set image width */
+  border-radius: 10px;             /* Rounded corners */
+  box-shadow: 0 0 30px rgba(0,0,0,0.6); /* Soft shadow for depth */
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth hover transition */
+}
+
+/* Image hover effect: scale and deeper shadow */
+.hero-img:hover {
+  transform: scale(1.05);          /* Slightly enlarge on hover */
+  box-shadow: 0 0 40px rgba(0,0,0,0.8); /* Darker shadow on hover */
+}
+
+/* Container for the text info */
+.info {
+  max-width: 500px;                /* Limit text block width */
+}
+
+/* Large name heading */
+h1 {
+  font-size: 64px;                 /* Large font size */
+  font-weight: 700;                /* Bold */
+  margin: 0 0 10px 0;              /* Space below */
+  color: #ffffff;                  /* White text */
+  transition: color 0.3s ease;     /* Smooth color change on hover */
+}
+
+/* Name hover effect: neon cyan */
+h1:hover {
+  color: #00ffff;                  /* Change color on hover */
+}
+
+/* Slogan under the name */
+h2 {
+  font-size: 24px;                 /* Medium font size */
+  font-weight: 400;                /* Normal weight */
+  margin: 0 0 30px 0;              /* Space below */
+  color: #cccccc;                  /* Light gray text */
+  transition: color 0.3s ease;     /* Smooth color change */
+}
+
+/* Slogan hover: brighten text */
+h2:hover {
+  color: #ffffff;                  /* Brighter on hover */
+}
+
+/* General text blocks for major, email, grad date */
+p {
+  font-size: 20px;                 /* Text size */
+  background: #222;                /* Dark background bubble */
+  padding: 15px 20px;              /* Inner spacing */
+  margin: 10px 0;                  /* Vertical space between */
+  border-radius: 8px;              /* Rounded corners */
+  color: #f0f0f0;                  /* Light text */
+  transition: background 0.3s ease, transform 0.3s ease; /* Smooth background and slide */
+}
+
+/* Paragraph hover: lighten background and slide right */
+p:hover {
+  background: #444;                /* Slightly lighter background */
+  transform: translateX(5px);      /* Slide right */
+}
+
+/* Different shades for each info bubble */
+#major { background: #333; }       /* Dark gray for major */
+#email { background: #2a2a2a; }    /* Slightly darker for email */
+#gradDate { background: #3a3a3a; } /* Mid-dark for grad date */
+
+/* Responsive styles for small screens */
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;        /* Stack vertically */
+    text-align: center;            /* Center text */
+  }
+
+  .hero-img {
+    width: 80%;                    /* Make image responsive */
+  }
+
+  h1 {
+    font-size: 48px;               /* Smaller heading on mobile */
+  }
+}
