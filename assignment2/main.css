@@ -1,0 +1,190 @@
+/* Prevent selection of text and images in major elements */
+body, h1, h2, p, img {
+  user-select: none;              /* Standard for most browsers */
+  -webkit-user-select: none;      /* Safari */
+  -moz-user-select: none;         /* Firefox */
+  -ms-user-select: none;          /* Internet Explorer/Edge */
+}
+
+/* Overall page layout and styling */
+body {
+  margin: 0;                                     /* Remove default browser margin */
+  min-height: 100vh;                             /* Full vertical height */
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c); /* Dark angled gradient */
+  color: #ffffff;                                /* Default text color */
+  font-family: 'Montserrat', sans-serif;         /* Font choice */
+  display: flex;                                 /* Use flexbox */
+  flex-direction: column;                        /* Stack vertically */
+  justify-content: center;                       /* Center vertically */
+  align-items: center;                           /* Center horizontally */
+  overflow-x: hidden;                            /* Prevent horizontal scroll */
+  padding: 20px;                                 /* Space around the body */
+}
+
+/* Flex container for profile image and info */
+.container {
+  display: flex;                                 /* Enable flex layout */
+  flex-direction: row;                           /* Horizontal alignment */
+  gap: 50px;                                     /* Space between items */
+  align-items: center;                           /* Vertical alignment */
+  flex-wrap: wrap;                               /* Wrap items on smaller screens */
+  justify-content: center;                       /* Center content */
+}
+
+/* Styling for the profile image */
+.hero-img {
+  width: 350px;                                  /* Set image width */
+  border-radius: 10px;                           /* Rounded corners */
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);    /* Cyan shadow glow */
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth animations */
+}
+
+/* Hover effect for profile image */
+.hero-img:hover {
+  transform: scale(1.05);                        /* Slight zoom */
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.6);    /* Stronger glow on hover */
+}
+
+/* Info section styling */
+.info {
+  max-width: 500px;                              /* Limit max width */
+  display: flex;                                 /* Flex layout */
+  flex-direction: column;                        /* Stack elements vertically */
+  gap: 15px;                                     /* Space between info blocks */
+}
+
+/* Main heading */
+h1 {
+  font-size: 64px;                               /* Large size */
+  font-weight: 700;                              /* Bold text */
+  margin: 0;                                     /* No spacing */
+  color: #ffffff;                                /* White color */
+  transition: color 0.3s ease;                   /* Smooth color change */
+}
+
+/* Hover effect for name */
+h1:hover {
+  color: #00ffff;                                /* Neon cyan */
+  text-shadow: 0 0 5px #00ffff;                  /* Glow effect */
+}
+
+/* Subheading / slogan */
+h2 {
+  font-size: 24px;                               /* Medium size */
+  font-weight: 400;                              /* Normal weight */
+  margin: 0;                                     /* No margin */
+  color: #bbbbbb;                                /* Light gray text */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth effects */
+}
+
+/* Hover effect for slogan */
+h2:hover {
+  color: #ffffff;                                /* Brighten on hover */
+  transform: scale(1.03);                        /* Slight zoom */
+}
+
+/* Base paragraph block styling */
+p {
+  font-size: 20px;                               /* Set text size */
+  background: #2a2a2a;                           /* Dark background */
+  padding: 15px 20px;                            /* Inner spacing */
+  margin: 0;                                     /* No outer spacing */
+  border-radius: 8px;                            /* Rounded corners */
+  color: #ffffff;                                /* White text */
+  transition: background 0.3s ease, transform 0.3s ease; /* Smooth interaction */
+  line-height: 1.5;                              /* Space between lines */
+  border-left: 4px solid #00ffff;                /* Colored side bar */
+}
+
+/* Hover effect for paragraph blocks */
+p:hover {
+  background: #3a3a3a;                           /* Lighten slightly on hover */
+  transform: translateX(6px);                    /* Shift right slightly */
+}
+
+/* Custom colors for each info block */
+#major { background: #333; border-color: #00ccff; }       /* Major block */
+#email { background: #2c2c2c; border-color: #00bfff; }     /* Email block */
+#gradDate { background: #3b3b3b; border-color: #00ffff; }  /* Grad date block */
+
+/* Slideshow box */
+.slideshow {
+  margin-top: 50px;                              /* Space above */
+  text-align: center;                            /* Center content */
+  width: 100%;                                   /* Full width */
+  max-width: 700px;                              /* Max width cap */
+  padding: 25px;                                 /* Internal padding */
+  border: 2px solid #00ffff;                     /* Border color */
+  border-radius: 15px;                           /* Rounded edges */
+  background: #101010;                           /* Dark background */
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);    /* Outer glow */
+  animation: fadeInUp 1s ease-out;               /* Entry animation */
+}
+
+/* Slideshow image */
+.slideshow img {
+  width: 100%;                                   /* Full width */
+  max-height: 400px;                             /* Max vertical space */
+  object-fit: cover;                             /* Maintain aspect ratio */
+  object-position: bottom;                       /* Crop from bottom edge */
+  border-radius: 12px;                           /* Rounded corners */
+  transition: opacity 0.8s ease-in-out, transform 0.4s ease; /* Smooth fade/scale */
+}
+
+/* Image hover effect */
+.slideshow img:hover {
+  transform: scale(1.02);                        /* Slight zoom */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);    /* Glow effect */
+}
+
+/* Caption below slideshow image */
+.caption {
+  margin-top: 15px;                              /* Space above */
+  font-size: 26px;                               /* Larger text */
+  color: #00ffff;                                /* Neon cyan */
+  font-weight: bold;                             /* Bold text */
+  text-shadow: 1px 1px 3px #000;                 /* Add depth */
+  transition: transform 0.3s ease, color 0.3s ease; /* Animate color/scale */
+}
+
+/* Hover effect for caption */
+.caption:hover {
+  color: #66ffff;                                /* Brighten text */
+  transform: scale(1.05);                        /* Enlarge slightly */
+}
+
+/* Entry animation: fade in and move up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;                                  /* Fully transparent */
+    transform: translateY(40px);                 /* Moved down */
+  }
+  to {
+    opacity: 1;                                  /* Fully visible */
+    transform: translateY(0);                    /* In original place */
+  }
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;                      /* Stack vertically */
+    text-align: center;                          /* Center text */
+  }
+
+  .hero-img {
+    width: 80%;                                  /* Shrink image */
+  }
+
+  h1 {
+    font-size: 48px;                             /* Smaller heading */
+  }
+
+  .slideshow {
+    margin-top: 30px;                            /* Less space on mobile */
+  }
+
+  .caption {
+    font-size: 22px;                             /* Smaller text on mobile */
+  }
+}

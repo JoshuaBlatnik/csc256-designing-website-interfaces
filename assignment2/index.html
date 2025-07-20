@@ -1,0 +1,42 @@
+<!DOCTYPE html> <!-- Declare the document as HTML5 -->
+
+<html lang="en"> <!-- Start the HTML document with English as the language -->
+<head>
+  <meta charset="UTF-8"> <!-- Set character encoding to UTF-8 for full character support -->
+  <title>Joshua Blatnik | Student Info</title> <!-- Title that appears in the browser tab -->
+
+  <!-- Link to Google Fonts to use the Montserrat font with weights 400 and 700 -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Link to external CSS file for styling the webpage -->
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body> <!-- Start of the body content -->
+
+  <!-- Flex container to hold profile image and info side-by-side -->
+  <div class="container">
+    
+    <!-- Profile image with alternate text and styling class -->
+    <img src="QuagsGarcia2023.jpg" alt="Urban Hoodie Art" class="hero-img">
+    
+    <!-- Info section containing name, slogan, and student details -->
+    <div class="info">
+      <h1 id="name"></h1> <!-- Heading to be filled with student name via JavaScript -->
+      <h2 id="slogan">Creating code with an edge.</h2> <!-- Static slogan line -->
+      <p id="major"></p> <!-- Paragraph to be filled with student's major -->
+      <p id="email"></p> <!-- Paragraph to be filled with student's email -->
+      <p id="gradDate"></p> <!-- Paragraph to be filled with expected graduation date -->
+    </div>
+  </div>
+
+  <!-- Slideshow Section: shows rotating images and captions -->
+  <div class="slideshow">
+    <img id="slide" src="" alt="Skill Highlight"> <!-- Slideshow image updated by JavaScript -->
+    <div class="caption" id="captionText"></div> <!-- Caption text for the slideshow image -->
+  </div>
+
+  <!-- Include external JavaScript file for dynamic behavior -->
+  <script src="main.js"></script>
+</body>
+</html>
