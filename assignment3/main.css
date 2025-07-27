@@ -1,0 +1,75 @@
+/* Sets background, font, and layout styling */
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c); /* Dark diagonal gradient */
+  font-family: 'Montserrat', sans-serif; /* Set font */
+  color: #ffffff; /* Set default text color to white */
+  display: flex; /* Use flex layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Fill full vertical screen */
+}
+
+/* Main movie app container */
+.movie-app {
+  background: #1a1a1a; /* Dark gray background */
+  border: 2px solid #00ffff; /* Cyan border */
+  padding: 40px; /* Space inside the box */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3); /* Glowing cyan shadow */
+  width: 90%; /* Full width on small screens */
+  max-width: 600px; /* Max width on large screens */
+  text-align: center; /* Center all text inside */
+}
+
+/* Heading style */
+h1 {
+  color: #00ffff; /* Cyan color */
+  font-size: 32px; /* Font size */
+  margin-bottom: 25px; /* Space below */
+}
+
+/* Input field for movie title */
+input[type="text"] {
+  width: 80%; /* Take most of the container */
+  padding: 12px; /* Space inside input */
+  border-radius: 8px; /* Rounded corners */
+  border: none; /* No border */
+  font-size: 18px; /* Font size */
+  margin-bottom: 20px; /* Space below input */
+}
+
+/* Group container for the buttons */
+.button-group {
+  margin-bottom: 20px; /* Space below the buttons */
+}
+
+/* Buttons for Add, Display, and Reset */
+button {
+  margin: 5px; /* Space around buttons */
+  padding: 10px 20px; /* Inner space */
+  font-size: 16px; /* Font size */
+  background: #00bfff; /* Bright blue background */
+  border: none; /* No border */
+  color: #fff; /* White text */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background: #0099cc; /* Darker blue on hover */
+}
+
+/* Style for each movie entry */
+#movieListDisplay p {
+  background: #2a2a2a; /* Dark background */
+  padding: 10px 15px; /* Inner space */
+  margin: 5px auto; /* Vertical spacing and center */
+  border-radius: 6px; /* Rounded corners */
+  border-left: 4px solid #00ffff; /* Cyan left border */
+  text-align: left; /* Left-align the text */
+  width: fit-content; /* Only as wide as the content */
+}

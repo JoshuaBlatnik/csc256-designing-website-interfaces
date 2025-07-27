@@ -1,0 +1,33 @@
+<!DOCTYPE html> <!-- Declares the document type as HTML5 -->
+<html lang="en"> <!-- Root HTML element with language set to English -->
+<head>
+  <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 for broad character support -->
+  <title>Movie List | W5 Assignment</title> <!-- Sets the title that appears on the browser tab -->
+  <!-- Links to Google Fonts to use the Montserrat font for the site -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Links an external CSS file named 'main.css' for styling -->
+  <link rel="stylesheet" href="main.css">
+</head>
+<body> <!-- Start of the body content that displays on the webpage -->
+  <!-- Main wrapper for the movie list app -->
+  <div class="movie-app">
+    <!-- Main heading of the page -->
+    <h1>Favorite Movie List</h1>
+    <!-- Input box where the user can enter a movie title -->
+    <input type="text" id="movieInput" placeholder="Enter a movie title">    
+    <!-- Group of buttons for actions: Add, Display, Reset -->
+    <div class="button-group">    
+      <!-- Button to add the movie to the list -->
+      <button onclick="addMovie()">Add Movie</button>      
+      <!-- Button to display the sorted movie list -->
+      <button onclick="displayMovies()">Display List</button>      
+      <!-- Button to reset (clear) the movie list -->
+      <button onclick="resetMovies()">Reset</button>      
+    </div>    
+    <!-- Div where the sorted movie list will be displayed -->
+    <div id="movieListDisplay"></div>
+  </div>
+  <!-- Includes the external JavaScript file 'main.js' for interactivity -->
+  <script src="main.js"></script>
+</body>
+</html>
