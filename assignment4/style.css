@@ -1,0 +1,153 @@
+/* ---------- Base Page Styling ---------- */
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set clean modern font */
+  height: 100vh; /* Make body full height of the viewport */
+  background: #1e1e2a; /* Dark dull background */
+  color: #f0f0f0; /* Light text color */
+  display: flex; /* Use flexbox for centering content */
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+  overflow: hidden; /* Hide overflow caused by background animation */
+  position: relative; /* Needed to position animated background absolutely */
+}
+/* ---------- Subtle Animated Background ---------- */
+.background-animated {
+  position: absolute; /* Layer it behind other elements */
+  top: 0; left: 0; /* Stretch to fill the viewport */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #2c2e3a, #3a3c48, #2c2e3a); /* Dull multi-tone gradient */
+  background-size: 300% 300%; /* Oversize for smooth animation */
+  animation: bgShift 20s ease infinite; /* Animate background movement */
+  z-index: 0; /* Place behind all other content */
+}
+/* ---------- Main Form Container ---------- */
+.form-container {
+  position: relative; /* Position within parent */
+  z-index: 1; /* On top of background */
+  background: #2a2b3c; /* Dark but distinct container background */
+  padding: 40px 30px 30px; /* Inner spacing */
+  border-radius: 16px; /* Rounded corners */
+  width: 100%;
+  max-width: 400px; /* Responsive container size */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Subtle drop shadow */
+  text-align: center; /* Center form elements */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
+}
+.form-container:hover {
+  transform: translateY(-4px); /* Float up slightly */
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5); /* Intensify shadow on hover */
+}
+/* ---------- Section Header (Divider) ---------- */
+.divider {
+  font-size: 22px; /* Slightly larger than body text */
+  color: #b7dff0; /* Soft bluish text color */
+  margin-bottom: 25px; /* Space below heading */
+  padding-bottom: 10px; /* Padding before underline */
+  position: relative; /* Needed for ::after underline */
+  animation: pulseGlow 3s ease-in-out infinite; /* Subtle glow animation */
+  letter-spacing: 1px; /* Slight spacing between characters */
+  font-weight: 600; /* Medium bold */
+  text-shadow: 0 0 6px #c2f3ff99; /* Light glow effect */
+  transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth hover interaction */
+}
+.divider:hover {
+  transform: scale(1.05); /* Slight scale up */
+  text-shadow: 0 0 10px #c2f3ffcc; /* Brighter glow on hover */
+}
+.divider::after {
+  content: ''; /* Decorative line element */
+  position: absolute;
+  bottom: 0; left: 25%; /* Centered under text */
+  width: 50%; height: 3px; /* Line dimensions */
+  background: #6ca6c1; /* Line color */
+  border-radius: 4px; /* Rounded line ends */
+  transition: width 0.3s ease; /* Allows width animation */
+}
+/* ---------- Make Text Non-selectable ---------- */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+}
+/* ---------- Input Field Styling ---------- */
+input[type="text"] {
+  width: 100%; /* Fill container width */
+  padding: 12px; /* Inner space */
+  margin: 10px 0; /* Space around inputs */
+  border: none; /* No border */
+  border-radius: 8px; /* Soft corners */
+  background-color: #3b3c4d; /* Medium dark input background */
+  color: #eaeaea; /* Light input text */
+  font-size: 15px; /* Readable size */
+  transition: background 0.3s ease, transform 0.2s ease; /* Smooth hover/focus */
+}
+input[type="text"]:hover {
+  background-color: #47495b; /* Slightly lighter background */
+}
+input[type="text"]:focus {
+  background-color: #46475b; /* Focus background color */
+  outline: 1px solid #94caff; /* Blue outline on focus */
+  transform: scale(1.02); /* Slight zoom on focus */
+}
+input::placeholder {
+  color: #9b9da7; /* Lighter text for placeholder */
+}
+/* ---------- Button Styling ---------- */
+button {
+  width: 100%; /* Fill container width */
+  padding: 12px; /* Button padding */
+  margin-top: 15px; /* Space above button */
+  background: #6ca6c1; /* Muted teal background */
+  color: #1e1e2a; /* Dark text */
+  font-size: 16px; /* Readable size */
+  font-weight: bold; /* Bold text */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effects */
+}
+button:hover {
+  background: #5b8ea3; /* Slightly darker on hover */
+  transform: scale(1.03); /* Grow slightly */
+  box-shadow: 0 0 10px rgba(47, 71, 106, 0.4); /* Subtle glow effect */
+}
+/* ---------- Output Display Box ---------- */
+#output {
+  margin-top: 25px; /* Space above output */
+  background-color: #23242e; /* Dark box background */
+  padding: 16px; /* Inner space */
+  border-radius: 8px; /* Rounded edges */
+  border-left: 4px solid #6ca6c1; /* Accent line */
+  white-space: pre-line; /* Preserve line breaks */
+  color: #ddd; /* Light text color */
+  font-size: 15px; /* Readable text */
+  text-align: left; /* Left-align text */
+  opacity: 0; /* Start hidden */
+  animation: fadeIn 0.5s ease forwards; /* Fade in effect */
+  animation-delay: 0.3s; /* Delay to appear after form */
+}
+/* ---------- Keyframe Animations ---------- */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; } /* Start position */
+  50% { background-position: 100% 50%; } /* Move gradient */
+  100% { background-position: 0% 50%; } /* Reset */
+}
+@keyframes fadeIn {
+  to { opacity: 1; } /* Fully visible */
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(30px); } /* Slide up */
+  to { opacity: 1; transform: translateY(0); } /* Final position */
+}
+@keyframes pulseGlow {
+  0%, 100% { text-shadow: 0 0 5px #6ca6c1; } /* Soft glow */
+  50% { text-shadow: 0 0 12px #6ca6c1aa; } /* Brighter mid glow */
+}
+/* ---------- Apply Slide-In Animation to Container ---------- */
+.animate-in {
+  animation: slideIn 0.6s ease forwards; /* Entrance animation */
+}

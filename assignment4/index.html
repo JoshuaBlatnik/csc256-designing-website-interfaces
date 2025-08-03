@@ -1,0 +1,37 @@
+<!-- Declare the document type as HTML5 -->
+<!DOCTYPE html>
+<!-- Start of the HTML document, language set to English -->
+<html lang="en">
+<head>
+  <!-- Set the character encoding to UTF-8 for full Unicode support -->
+  <meta charset="UTF-8">
+  <!-- Set the title of the webpage (displayed in the browser tab) -->
+  <title>Game Start Form</title>
+  <!-- Link to the external CSS file for styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- Start of the body content -->
+<body>
+  <!-- Animated background div that uses CSS for subtle motion -->
+  <div class="background-animated"></div>
+  <!-- Main form container with entrance animation -->
+  <div class="form-container animate-in">
+    <!-- Section heading styled as a glowing divider, non-selectable -->
+    <div class="divider no-select">Game Setup</div>
+    <!-- Text input for entering the player's username -->
+    <input type="text" id="username" placeholder="Username">
+    <!-- Text input for entering the player's selected weapons -->
+    <input type="text" id="weapons" placeholder="Weapons">
+    <!-- Text input for entering the player's health or damage level -->
+    <input type="text" id="health" placeholder="Health/Damage">
+    <!-- Text input for entering the player's point total -->
+    <input type="text" id="points" placeholder="Point Total">
+    <!-- Submit button that triggers the JavaScript function to process input -->
+    <button onclick="submitForm()">Start Game</button>
+    <!-- Output area to display the submitted player info -->
+    <div id="output" class="fade-in"></div>
+  </div>
+  <!-- Link to the external JavaScript file for form functionality -->
+  <script src="script.js"></script>
+</body>
+</html>
