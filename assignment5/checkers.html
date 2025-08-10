@@ -1,0 +1,45 @@
+<!-- checkers.html --> <!-- file name for reference -->
+<!DOCTYPE html> <!-- declare HTML5 document -->
+<html lang="en"> <!-- root element with language set to English -->
+<head> <!-- head section starts -->
+  <meta charset="UTF-8" /> <!-- set character encoding to UTF 8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- make layout responsive -->
+  <title>Checkers</title> <!-- browser tab title -->
+  <link rel="stylesheet" href="checkers.css" /> <!-- link external CSS -->
+</head> <!-- head section ends -->
+<body> <!-- body content starts -->
+  <div class="bg"></div> <!-- animated background layer -->
+
+  <main class="card appear"> <!-- main app card with entry animation -->
+    <h1 class="heading no-select">Checkers</h1> <!-- title text, not selectable -->
+
+    <div class="controls"> <!-- top control bar -->
+      <button id="newGameBtn" class="btn">New Game</button> <!-- reset button -->
+      <div class="pill">Turn: <span id="turnPlayer">Blue</span></div> <!-- turn indicator -->
+    </div> <!-- controls end -->
+
+    <div class="captures"> <!-- layout row for trays and board -->
+      <div class="tray"> <!-- left capture tray -->
+        <div class="tray-title">Blue Captures</div> <!-- tray label -->
+        <div id="blueTray" class="stack"></div> <!-- stack of tokens captured by blue -->
+      </div> <!-- left tray end -->
+      <div id="board" class="board" aria-label="Checkers board" role="grid"></div> <!-- 8 by 8 board grid -->
+      <div class="tray"> <!-- right capture tray -->
+        <div class="tray-title">Red Captures</div> <!-- tray label -->
+        <div id="redTray" class="stack"></div> <!-- stack of tokens captured by red -->
+      </div> <!-- right tray end -->
+    </div> <!-- captures row end -->
+
+    <div id="log" class="log" aria-live="polite"></div> <!-- status log for screen readers -->
+  </main> <!-- app card end -->
+
+  <div id="winOverlay" class="overlay hidden"> <!-- full screen winner overlay, hidden by default -->
+    <div class="overlay-card"> <!-- centered overlay card -->
+      <h2 id="winText">Blue wins</h2> <!-- winner text -->
+      <button id="playAgain" class="btn">Play Again</button> <!-- start new game -->
+    </div> <!-- overlay card end -->
+  </div> <!-- overlay end -->
+
+  <script src="checkers.js"></script> <!-- game logic and interactions -->
+</body> <!-- body end -->
+</html> <!-- document end -->
