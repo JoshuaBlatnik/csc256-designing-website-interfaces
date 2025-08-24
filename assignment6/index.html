@@ -1,0 +1,259 @@
+<!doctype html> <!-- Defines this file as an HTML5 document -->
+<html lang="en"> <!-- Start of HTML document with English language -->
+
+  <head> <!-- Head section: metadata and linked resources -->
+    <meta charset="utf-8" /> <!-- Character encoding set to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Makes site responsive on all devices -->
+    <title>ScriptSense · JavaScript Assistant</title> <!-- Title shown in browser tab -->
+    <meta name="description" content="ScriptSense is an in browser JavaScript assistant with live code, smart hints, and clean UX." /> <!-- Short description for SEO -->
+
+    <!-- Preconnect hints to speed up Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Load Inter font family with weights -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body> <!-- Body of the page -->
+
+    <!-- Floating cursor glow element (purely visual) -->
+    <div id="cursorBlob" aria-hidden="true"></div>
+
+    <!-- Site header with logo + navigation -->
+    <header class="siteHeader" data-elevate>
+      <div class="wrap"> <!-- Centered content wrapper -->
+        <div class="logo">Script<span>Sense</span></div> <!-- Site logo text with gradient highlight -->
+        
+        <!-- Main navigation -->
+        <nav class="mainNav" aria-label="Primary">
+          <!-- Hamburger menu button for small screens -->
+          <button id="menuToggle" class="menuToggle" aria-expanded="false" aria-controls="navList">Menu</button>
+          <!-- Navigation links -->
+          <ul id="navList" class="navList">
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#platforms">Platforms</a></li>
+            <li><a href="#fit">Why It Fits</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main site content -->
+    <main id="main">
+
+      <!-- Hero section with intro and buttons -->
+      <section class="hero" id="home" data-section>
+        <div class="wrap">
+          <!-- Title with brand name -->
+          <h1 class="title">
+            <span class="titleLine">Welcome to</span>
+            <span class="brand">Script<span>Sense</span></span>
+          </h1>
+          <p class="subtitle">Your in browser JavaScript assistant.</p> <!-- Subtitle -->
+          
+          <!-- Call-to-action buttons -->
+          <div class="ctaRow">
+            <a class="btn primary" href="#playground">Start Coding Now</a>
+            <a class="btn ghost" href="#features">See Features</a>
+          </div>
+        </div>
+        <!-- Canvas background animation -->
+        <canvas id="bgCanvas" aria-hidden="true"></canvas>
+      </section>
+
+      <!-- About section -->
+      <section class="about" id="about" data-section>
+        <div class="wrap grid2"> <!-- Two-column grid layout -->
+          <div>
+            <h2>About</h2>
+            <!-- About text -->
+            <p class="lead">
+              ScriptSense is your interactive JavaScript learning space.  
+              It combines a live coding editor, real-time feedback, and clear error explanations.  
+              Whether you’re a student, hobbyist, or educator, ScriptSense makes coding faster, easier, and more engaging.
+            </p>
+            <!-- Key points -->
+            <ul class="ticks">
+              <li>Designed for learners who want hands-on coding practice</li>
+              <li>Perfect for classrooms, self-study, or quick experiments</li>
+              <li>Focuses on reusable, well-documented JavaScript functions</li>
+            </ul>
+          </div>
+          <!-- Highlights card -->
+          <div class="card accent">
+            <h3>Highlights</h3>
+            <ul class="bullets">
+              <li>💡 Live editor with instant visual preview</li>
+              <li>🛠 Smart error helper with plain-language fixes</li>
+              <li>📦 Built-in demos for objects, arrays, and functions</li>
+              <li>⚡ Lightweight, browser-based, no setup required</li>
+              <li>🎓 Optimized for both students and educators</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features section -->
+      <section class="features" id="features" data-section>
+        <div class="wrap">
+          <h2>Features</h2>
+          <p class="lead">Interactive cards below are created and animated by JavaScript.</p>
+          <!-- Feature cards will be injected here by JavaScript -->
+          <div id="featureGrid" class="featureGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- How it works section -->
+      <section class="how" id="how" data-section>
+        <div class="wrap grid2">
+          <div>
+            <h2>How It Works</h2>
+            <!-- Step-by-step list -->
+            <ul class="steps">
+              <li>Type code in the editor.</li>
+              <li>Click Run to update the preview.</li>
+              <li>Check the console panel to see values and messages.</li>
+              <li>Use the Explain button to see a human friendly error hint.</li>
+            </ul>
+          </div>
+          <!-- Why it fits card -->
+          <div class="card">
+            <h3>Why It Fits</h3>
+            <p>
+              It is JavaScript heavy, dynamic, and stands alone as a site. It uses objects, reusable functions,
+              and clear comments. It is built for learning and for fast demos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Playground (live editor) -->
+      <section class="playground" id="playground" data-section>
+        <div class="wrap">
+          <!-- Playground header with actions -->
+          <div class="pgHeader">
+            <h2>Live Editor</h2>
+            <div class="pgActions">
+              <button class="btn" id="btnRun">Run</button> <!-- Run code button -->
+              <button class="btn" id="btnExplain">Explain Error</button> <!-- Explain error button -->
+              <button class="btn ghost" id="btnReset">Reset</button> <!-- Reset editor -->
+              <!-- Reduce motion toggle -->
+              <label class="toggle">
+                <input type="checkbox" id="reduceMotion" />
+                <span>Reduce Motion</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Editor + Preview split -->
+          <div class="editorRow">
+            <!-- Editor textarea -->
+            <div class="editorPane">
+              <textarea id="code" spellcheck="false"></textarea>
+            </div>
+            <!-- Preview and console output -->
+            <div class="previewPane">
+              <iframe id="preview" title="Preview" sandbox="allow-scripts"></iframe>
+              <div class="console" id="console" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <!-- Expandable quick tips -->
+          <details class="help" open>
+            <summary>
+              <span class="tip-dot" aria-hidden="true"></span>
+              Quick tips
+            </summary>
+            <ul class="tipsList">
+              <li>Use <code>log(value)</code> to print to the console panel.</li>
+              <li>Click <strong>Run</strong> to refresh the preview. <strong>Reset</strong> restores the starter code.</li>
+              <li><strong>Explain Error</strong> gives a plain-language hint for common errors.</li>
+              <li>Click a <strong>feature card’s</strong> “Insert sample” to load example code into the editor.</li>
+              <li>The preview runs in a <strong>sandboxed iframe</strong>, so it’s safe to experiment.</li>
+              <li>Use the <strong>Reduce Motion</strong> toggle if animations are distracting or you’re on battery.</li>
+              <li>You can <strong>resize</strong> the editor textarea and scroll the console separately.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+
+      <!-- Platforms section -->
+      <section class="platforms" id="platforms" data-section>
+        <div class="wrap">
+          <h2>Platforms</h2>
+          <p>Works on modern browsers and uses no server.</p>
+          <!-- Supported browsers -->
+          <ul class="platformList">
+            <li>Chrome</li>
+            <li>Edge</li>
+            <li>Firefox</li>
+            <li>Safari</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Built for your class -->
+      <section class="fit" id="fit" data-section>
+        <div class="wrap grid2">
+          <div>
+            <h2>Built For Your Class</h2>
+            <ul class="ticks">
+              <li>Reusable functions and clean comments</li>
+              <li>Objects and dynamic rendering</li>
+              <li>Lightweight and fast</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Testing</h3>
+            <p>Tested on two browsers and supports keyboard and screen readers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact / Resources section -->
+      <section class="contact" id="contact" data-section>
+        <div class="wrap grid2">
+          <!-- Contact form -->
+          <form class="card form" id="contactForm" novalidate>
+            <h2>Contact</h2>
+            <label>Email <input type="email" id="email" placeholder="you@example.com" required></label>
+            <label>Feedback <textarea id="feedback" rows="4" placeholder="Tell us what to add."></textarea></label>
+            <button class="btn primary" id="sendBtn" type="submit">Send</button>
+            <p class="small" id="formMsg" role="status" aria-live="polite"></p>
+          </form>
+          <!-- Resource links -->
+          <div>
+            <h3>Resources</h3>
+            <ul class="bullets">
+              <li><a href="#features">Feature Tour</a></li>
+              <li><a href="#how">How It Works</a></li>
+              <li><a href="https://htmlpreview.github.io/" target="_blank" rel="noopener">HTML Previewer</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="siteFooter">
+      <div class="wrap">
+        <p>ScriptSense © 2025 · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#" id="githubLink">GitHub</a></p>
+      </div>
+    </footer>
+
+    <!-- Fallback when JS is disabled -->
+    <noscript>
+      <div class="noscript">This site uses JavaScript for its main features. Please enable it.</div>
+    </noscript>
+
+    <!-- Main JavaScript file -->
+    <script src="main.js" defer></script>
+  </body>
+</html>
